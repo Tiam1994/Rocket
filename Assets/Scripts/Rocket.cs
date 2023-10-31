@@ -10,9 +10,9 @@ public class Rocket : MonoBehaviour
     [SerializeField] AudioClip flySound;
     [SerializeField] AudioClip loseSound;
     [SerializeField] AudioClip winSound;
-    [SerializeField] ParticleSystem fireParticle;
-    [SerializeField] ParticleSystem deathParticle;
-    [SerializeField] ParticleSystem finishParticle;
+    //[SerializeField] ParticleSystem fireParticle;
+    //[SerializeField] ParticleSystem deathParticle;
+    //[SerializeField] ParticleSystem finishParticle;
     enum State { Playing, Dead, NextLevel };
     State state = State.Playing;
     bool collisionOff = false;
@@ -40,14 +40,15 @@ public class Rocket : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.Space))
         {
-            fireParticle.Play();
-            rigidBody.AddRelativeForce(Vector3.up * flySpeed * Time.deltaTime);
+            //fireParticle.Play();
+            //rigidBody.AddRelativeForce(Vector3.up * flySpeed * Time.deltaTime);
+            rigidBody.AddRelativeForce(Vector3.forward * flySpeed * Time.deltaTime);
             if (!audioSource.isPlaying)
                 audioSource.PlayOneShot(flySound);
         }
         else
         {
-            fireParticle.Stop();
+            //fireParticle.Stop();
             audioSource.Pause();
         }
     }
@@ -59,11 +60,13 @@ public class Rocket : MonoBehaviour
         rigidBody.freezeRotation = true;
         if (Input.GetKey(KeyCode.A))
         {
-            transform.Rotate(Vector3.forward * rotationSpeed);
+            transform.Rotate(Vector3.up * rotationSpeed);
+            return;
         }
         else if (Input.GetKey(KeyCode.D))
         {
-            transform.Rotate(-Vector3.forward * rotationSpeed);
+            transform.Rotate(-Vector3.up * rotationSpeed);
+            return;
         }
         rigidBody.freezeRotation = false;
     }
@@ -108,20 +111,20 @@ public class Rocket : MonoBehaviour
     void Finish()
     {
         state = State.NextLevel;
-        fireParticle.Stop();
+        //fireParticle.Stop();
         audioSource.Stop();
         audioSource.PlayOneShot(winSound);
-        finishParticle.Play();
+        //finishParticle.Play();
         Invoke("LoadNextLevel", 2f);
     }
 
     void Lose()
     {
         state = State.Dead;
-        fireParticle.Stop();
+        //fireParticle.Stop();
         audioSource.Stop();
         audioSource.PlayOneShot(loseSound);
-        deathParticle.Play();
+        //deathParticle.Play();
         Invoke("LoadFirstLevel", 2f);
     }
 
