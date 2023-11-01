@@ -1,8 +1,7 @@
 using UnityEngine.Events;
-using Runtime.SFX;
 using UnityEngine;
 
-namespace Runtime.Lobby
+namespace Runtime.Scenes.Lobby
 {
 	public class LobbyManager : MonoBehaviour
 	{

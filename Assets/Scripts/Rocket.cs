@@ -41,8 +41,7 @@ public class Rocket : MonoBehaviour
         if (Input.GetKey(KeyCode.Space))
         {
             //fireParticle.Play();
-            //rigidBody.AddRelativeForce(Vector3.up * flySpeed * Time.deltaTime);
-            rigidBody.AddRelativeForce(Vector3.forward * flySpeed * Time.deltaTime);
+            rigidBody.AddRelativeForce(Vector3.up * flySpeed * Time.deltaTime);
             if (!audioSource.isPlaying)
                 audioSource.PlayOneShot(flySound);
         }
@@ -60,13 +59,15 @@ public class Rocket : MonoBehaviour
         rigidBody.freezeRotation = true;
         if (Input.GetKey(KeyCode.A))
         {
-            transform.Rotate(Vector3.up * rotationSpeed);
-            return;
+			//transform.Rotate(Vector3.forward * rotationSpeed);
+			transform.Rotate(Vector3.left * rotationSpeed);
+			return;
         }
         else if (Input.GetKey(KeyCode.D))
         {
-            transform.Rotate(-Vector3.up * rotationSpeed);
-            return;
+			//transform.Rotate(-Vector3.forward * rotationSpeed);
+			transform.Rotate(Vector3.right * rotationSpeed);
+			return;
         }
         rigidBody.freezeRotation = false;
     }
