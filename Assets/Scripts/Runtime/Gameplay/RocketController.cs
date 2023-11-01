@@ -10,6 +10,8 @@ namespace Runtime.Gameplay
 
 		private Rigidbody _rigidbody;
 
+		public bool IsRocketDead { get; set; }
+
 		private void Awake()
 		{
 			Initialize();
@@ -17,13 +19,17 @@ namespace Runtime.Gameplay
 
 		private void FixedUpdate()
 		{
-			RocketFlight();
-			RocketRotation();
+			if(!IsRocketDead)
+			{
+				RocketFlight();
+				RocketRotation();
+			}
 		}
 
 		private void Initialize()
 		{
 			_rigidbody = GetComponent<Rigidbody>();
+			IsRocketDead = false;
 		}
 
 		private void RocketFlight()
