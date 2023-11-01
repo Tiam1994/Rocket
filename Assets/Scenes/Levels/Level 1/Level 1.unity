@@ -959,6 +959,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BackgrounSound
       objectReference: {fileID: 0}
+    - target: {fileID: 4215267825135718211, guid: 0aca54d0de04f864ab300df457ff6c84, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4215267825135718221, guid: 0aca54d0de04f864ab300df457ff6c84, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -1223,7 +1227,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5364794516547966345, guid: 58539610d9299e64c870b13fbc6cd4c7, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 58539610d9299e64c870b13fbc6cd4c7, type: 3}

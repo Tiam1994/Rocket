@@ -7,12 +7,17 @@ namespace Runtime.Gameplay
 	[RequireComponent (typeof(Collider))]
 	public class RocketInteraction : MonoBehaviour
 	{
-		public UnityEvent OnRocketCollision;
+		private bool _isRocketInteractionActive = true;
+
+		public UnityEvent OnInteractionWithObstacle;
 		public UnityEvent OnInteractionWithLandingPad;
 
 		private void OnCollisionEnter(Collision collision)
 		{
-			CollisionRocket(collision.gameObject.tag);
+			if(_isRocketInteractionActive)
+			{
+				CollisionRocket(collision.gameObject.tag);
+			}
 		}
 
 		private void CollisionRocket(string collisionObject)
@@ -20,12 +25,17 @@ namespace Runtime.Gameplay
 			switch (collisionObject)
 			{
 				case TagConstants.OBSTACLE_TAG:
-					OnRocketCollision?.Invoke();
+					OnInteractionWithObstacle?.Invoke();
 					break;
 				case TagConstants.LANDING_PAD_TAG:
 					OnInteractionWithLandingPad?.Invoke();
 					break;
 			}
+		}
+
+		public void DeactivateRocketInteraction()
+		{
+			_isRocketInteractionActive = false;
 		}
 	}
 }

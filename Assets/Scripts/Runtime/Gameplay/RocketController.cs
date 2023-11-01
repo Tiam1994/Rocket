@@ -8,9 +8,8 @@ namespace Runtime.Gameplay
 		[SerializeField] private float _flySpeed;
 		[SerializeField] private float _rotateSpeed;
 
+		private bool _isRocketControlActive;
 		private Rigidbody _rigidbody;
-
-		public bool IsRocketDead { get; set; }
 
 		private void Awake()
 		{
@@ -19,17 +18,17 @@ namespace Runtime.Gameplay
 
 		private void FixedUpdate()
 		{
-			if(!IsRocketDead)
+			if(_isRocketControlActive)
 			{
 				RocketFlight();
 				RocketRotation();
 			}
 		}
 
-		private void Initialize()
+		public void Initialize()
 		{
 			_rigidbody = GetComponent<Rigidbody>();
-			IsRocketDead = false;
+			_isRocketControlActive = true;
 		}
 
 		private void RocketFlight()
@@ -50,6 +49,11 @@ namespace Runtime.Gameplay
 			{
 				transform.Rotate(Vector3.right * _rotateSpeed);
 			}
+		}
+
+		public void DeactivateRocketControl()
+		{
+			_isRocketControlActive = false;
 		}
 	}
 }

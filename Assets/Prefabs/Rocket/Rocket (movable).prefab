@@ -123,6 +123,7 @@ Transform:
   - {fileID: 7278507281426703365}
   - {fileID: 5122608030276930603}
   - {fileID: 4652328514524241607}
+  - {fileID: 3325128177207576976}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 55, z: 0}
@@ -218,6 +219,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rocketController: {fileID: 6445967688029536604}
+  _rocketInteraction: {fileID: 384095857423855011}
+  OnRocketCrashed:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4671696922909914913}
+        m_TargetAssemblyTypeName: Runtime.SFX.AudioManager, Assembly-CSharp
+        m_MethodName: PlaySound
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: a1bfbd21ae2ff1e4a99c54fa6a5cb4c4, type: 2}
+          m_ObjectArgumentAssemblyTypeName: Runtime.SFX.Sound, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &6445967688029536604
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -244,7 +261,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6c23fb0183ed1846bd78a26fd9186be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OnRocketCollision:
+  OnInteractionWithObstacle:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 3982635847039371068}
@@ -594,3 +611,76 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1001 &4265974814005491888
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 5239932285703062869}
+    m_Modifications:
+    - target: {fileID: 1519669142026121504, guid: 9847ed2a28128034dae6e43dc43fa2c5, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1519669142026121504, guid: 9847ed2a28128034dae6e43dc43fa2c5, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1519669142026121504, guid: 9847ed2a28128034dae6e43dc43fa2c5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1519669142026121504, guid: 9847ed2a28128034dae6e43dc43fa2c5, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1519669142026121504, guid: 9847ed2a28128034dae6e43dc43fa2c5, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1519669142026121504, guid: 9847ed2a28128034dae6e43dc43fa2c5, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1519669142026121504, guid: 9847ed2a28128034dae6e43dc43fa2c5, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1519669142026121504, guid: 9847ed2a28128034dae6e43dc43fa2c5, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1519669142026121504, guid: 9847ed2a28128034dae6e43dc43fa2c5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1519669142026121504, guid: 9847ed2a28128034dae6e43dc43fa2c5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1519669142026121504, guid: 9847ed2a28128034dae6e43dc43fa2c5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6240561246552107424, guid: 9847ed2a28128034dae6e43dc43fa2c5, type: 3}
+      propertyPath: m_Name
+      value: '[Audio Manager]'
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9847ed2a28128034dae6e43dc43fa2c5, type: 3}
+--- !u!4 &3325128177207576976 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1519669142026121504, guid: 9847ed2a28128034dae6e43dc43fa2c5, type: 3}
+  m_PrefabInstance: {fileID: 4265974814005491888}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4671696922909914913 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8928099169640107921, guid: 9847ed2a28128034dae6e43dc43fa2c5, type: 3}
+  m_PrefabInstance: {fileID: 4265974814005491888}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c12d1c02c6ed82149a8da5aa29362c3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
