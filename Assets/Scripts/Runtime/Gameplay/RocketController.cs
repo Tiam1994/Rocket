@@ -1,3 +1,4 @@
+using UnityEngine.Events;
 using UnityEngine;
 
 namespace Runtime.Gameplay
@@ -9,7 +10,11 @@ namespace Runtime.Gameplay
 		[SerializeField] private float _rotateSpeed;
 
 		private bool _isRocketControlActive;
+		private bool _isRocketFlying;
 		private Rigidbody _rigidbody;
+
+		public UnityEvent OnRocketStartedFlight;
+		public UnityEvent OnRocketCompletedFlight;
 
 		private void Awake()
 		{
@@ -36,6 +41,20 @@ namespace Runtime.Gameplay
 			if(Input.GetKey(KeyCode.Space))
 			{
 				_rigidbody.AddRelativeForce(Vector3.up * _flySpeed);
+
+				if(!_isRocketFlying)
+				{
+					_isRocketFlying = true;
+					OnRocketStartedFlight?.Invoke();
+				}
+			}
+			else
+			{
+				if (_isRocketFlying)
+				{
+					_isRocketFlying = false;
+					OnRocketCompletedFlight?.Invoke();
+				}
 			}
 		}
 

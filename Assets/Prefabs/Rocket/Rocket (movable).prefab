@@ -220,21 +220,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rocketController: {fileID: 6445967688029536604}
   _rocketInteraction: {fileID: 384095857423855011}
-  OnRocketCrashed:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 4671696922909914913}
-        m_TargetAssemblyTypeName: Runtime.SFX.AudioManager, Assembly-CSharp
-        m_MethodName: PlaySound
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: a1bfbd21ae2ff1e4a99c54fa6a5cb4c4, type: 2}
-          m_ObjectArgumentAssemblyTypeName: Runtime.SFX.Sound, Assembly-CSharp
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &6445967688029536604
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -249,6 +234,36 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _flySpeed: 1
   _rotateSpeed: 1
+  OnRocketStartedFlight:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4671696922909914913}
+        m_TargetAssemblyTypeName: Runtime.SFX.AudioManager, Assembly-CSharp
+        m_MethodName: PlaySound
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: 1e94f1b9ef59c614688e5ab9048bd315, type: 2}
+          m_ObjectArgumentAssemblyTypeName: Runtime.SFX.Sound, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnRocketCompletedFlight:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4671696922909914913}
+        m_TargetAssemblyTypeName: Runtime.SFX.AudioManager, Assembly-CSharp
+        m_MethodName: StopSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &384095857423855011
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -271,6 +286,18 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 4671696922909914913}
+        m_TargetAssemblyTypeName: Runtime.SFX.AudioManager, Assembly-CSharp
+        m_MethodName: PlaySound
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: a1bfbd21ae2ff1e4a99c54fa6a5cb4c4, type: 2}
+          m_ObjectArgumentAssemblyTypeName: Runtime.SFX.Sound, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
